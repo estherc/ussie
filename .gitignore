@@ -3,3 +3,6 @@
 .Rdata
 .httr-oauth
 .DS_Store
+ussie.Rcheck/
+ussie*.tar.gz
+ussie*.tgz
