@@ -2,7 +2,7 @@ Package: ussie
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
-    person("Esther", "Chan", , "esther.chan@bms.com", role = c("aut", "cre"))
+    person("Esther", "Chan", , "esther.t.chan@gmail.com", role = c("aut", "cre"))
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Encoding: UTF-8
