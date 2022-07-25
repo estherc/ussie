@@ -4,3 +4,4 @@
 ^ussie.*\.tar\.gz$
 ^ussie.*\.tgz$
 ^LICENSE\.md$
+^CITATION\.cff$

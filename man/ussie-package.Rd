@@ -4,12 +4,12 @@
 \name{ussie-package}
 \alias{ussie}
 \alias{ussie-package}
-\title{ussie: What the Package Does (One Line, Title Case)}
+\title{ussie: Work with European Football League Data}
 \description{
 This is a demo package for the "Building Tidy Tools" workshop at at rstudio::conf(2022L). It allows you to work with European football league data supplied by the engsoccerdata package (Curley 2016).
 }
 \author{
-\strong{Maintainer}: Esther Chan \email{esther.t.chan@gmail.com}
+\strong{Maintainer}: Esther Chan \email{estherchan@notrealemail.com}
 
 }
 \keyword{internal}
