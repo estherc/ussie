@@ -3,7 +3,9 @@ Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
     person("Esther", "Chan", , "esther.t.chan@gmail.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Description: This is a demo package for the "Building Tidy Tools" workshop at 
+    at rstudio::conf(2022L). It allows you to work with European football 
+    league data supplied by the engsoccerdata package (Curley 2016).
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
