@@ -5,3 +5,5 @@
 ^ussie.*\.tgz$
 ^LICENSE\.md$
 ^CITATION\.cff$
+^README\.Rmd$
+^\.github$
