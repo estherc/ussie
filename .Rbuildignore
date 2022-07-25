@@ -1,0 +1,5 @@
+^ussie\.Rproj$
+^\.Rproj\.user$
+^ussie\.Rcheck$
+^ussie.*\.tar\.gz$
+^ussie.*\.tgz$
