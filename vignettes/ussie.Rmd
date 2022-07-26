@@ -22,8 +22,17 @@ library(dplyr)
 ussie helps standardize European football data tables retrieved from the engsoccer package for each country.
 
 ```{r spain matches}
-spain_original <- engsoccerdata::spain
-glimpse(spain_original)
 
-spain_standard <- uss_make_matches(engsoccerdata::spain, "Spain")
-glimpse(spain_standard)
+spain <- uss_make_matches(engsoccerdata::spain, "Spain")
+glimpse(spain)
+```
+
+## Get data from a specific country
+
+`uss_get_matches()` can retrieve data for a specific country (among those available) within the engsoccer dataset
+
+```{r uss_get_matches}
+
+spain_matches <- uss_get_matches("spain") |> glimpse()
+
+```

@@ -12,10 +12,10 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
 Imports: 
     dplyr,
+    engsoccerdata,
     rlang,
     tibble
 Suggests: 
-    engsoccerdata,
     knitr,
     rmarkdown,
     testthat (>= 3.0.0)
