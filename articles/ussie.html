@@ -83,25 +83,9 @@
 <span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span></code></pre></div>
 <p>ussie helps standardize European football data tables retrieved from the engsoccer package for each country.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">spain_original</span> <span class="op">&lt;-</span> <span class="fu">engsoccerdata</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/engsoccerdata/man/spain.html" class="external-link">spain</a></span></span>
-<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">spain_original</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Rows: 23,915</span></span>
-<span><span class="co">#&gt; Columns: 12</span></span>
-<span><span class="co">#&gt; $ Date    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "1929-02-10", "1929-02-10", "1929-02-10", "1929-02-10", "1929-…</span></span>
-<span><span class="co">#&gt; $ Season  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 19…</span></span>
-<span><span class="co">#&gt; $ home    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Arenas de Getxo", "Espanyol Barcelona", "Real Madrid", "Real …</span></span>
-<span><span class="co">#&gt; $ visitor <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Atletico Madrid", "Real Union", "CE Europa", "Athletic Bilbao…</span></span>
-<span><span class="co">#&gt; $ HT      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "0-2", "1-0", "0-0", "1-1", "0-0", "0-1", "3-0", "0-3", "0-1",…</span></span>
-<span><span class="co">#&gt; $ FT      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2-3", "3-2", "5-0", "1-1", "0-2", "1-2", "9-0", "0-3", "3-1",…</span></span>
-<span><span class="co">#&gt; $ hgoal   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 2, 3, 5, 1, 0, 1, 9, 0, 3, 5, 3, 3, 1, 0, 2, 1, 2, 3, 2, 2, 3,…</span></span>
-<span><span class="co">#&gt; $ vgoal   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 3, 2, 0, 1, 2, 2, 0, 3, 1, 2, 0, 1, 1, 4, 1, 2, 1, 0, 2, 0, 3,…</span></span>
-<span><span class="co">#&gt; $ tier    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span></span>
-<span><span class="co">#&gt; $ round   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "league", "league", "league", "league", "league", "league", "l…</span></span>
-<span><span class="co">#&gt; $ group   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
-<span><span class="co">#&gt; $ notes   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
-<span></span>
-<span><span class="va">spain_standard</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/uss_make_matches.html">uss_make_matches</a></span><span class="op">(</span><span class="fu">engsoccerdata</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/engsoccerdata/man/spain.html" class="external-link">spain</a></span>, <span class="st">"Spain"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">spain_standard</span><span class="op">)</span></span>
+<code class="sourceCode R"><span></span>
+<span><span class="va">spain</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/uss_make_matches.html">uss_make_matches</a></span><span class="op">(</span><span class="fu">engsoccerdata</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/engsoccerdata/man/spain.html" class="external-link">spain</a></span>, <span class="st">"Spain"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">spain</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 23,915</span></span>
 <span><span class="co">#&gt; Columns: 8</span></span>
 <span><span class="co">#&gt; $ country       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Spain", "Spain", "Spain", "Spain", "Spain", "Spain", "S…</span></span>
@@ -112,6 +96,24 @@
 <span><span class="co">#&gt; $ visitor       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Atletico Madrid", "Real Union", "CE Europa", "Athletic …</span></span>
 <span><span class="co">#&gt; $ goals_home    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 2, 3, 5, 1, 0, 1, 9, 0, 3, 5, 3, 3, 1, 0, 2, 1, 2, 3, 2,…</span></span>
 <span><span class="co">#&gt; $ goals_visitor <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 3, 2, 0, 1, 2, 2, 0, 3, 1, 2, 0, 1, 1, 4, 1, 2, 1, 0, 2,…</span></span></code></pre></div>
+<div class="section level2">
+<h2 id="get-data-from-a-specific-country">Get data from a specific country<a class="anchor" aria-label="anchor" href="#get-data-from-a-specific-country"></a>
+</h2>
+<p><code><a href="../reference/uss_get_matches.html">uss_get_matches()</a></code> can retrieve data for a specific country (among those available) within the engsoccer dataset</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">spain_matches</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/uss_get_matches.html">uss_get_matches</a></span><span class="op">(</span><span class="st">"spain"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Rows: 23,915</span></span>
+<span><span class="co">#&gt; Columns: 8</span></span>
+<span><span class="co">#&gt; $ country       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Spain", "Spain", "Spain", "Spain", "Spain", "Spain", "S…</span></span>
+<span><span class="co">#&gt; $ tier          <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</span></span>
+<span><span class="co">#&gt; $ season        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 1928, 19…</span></span>
+<span><span class="co">#&gt; $ date          <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 1929-02-10, 1929-02-10, 1929-02-10, 1929-02-10, 1929-02…</span></span>
+<span><span class="co">#&gt; $ home          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Arenas de Getxo", "Espanyol Barcelona", "Real Madrid", …</span></span>
+<span><span class="co">#&gt; $ visitor       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Atletico Madrid", "Real Union", "CE Europa", "Athletic …</span></span>
+<span><span class="co">#&gt; $ goals_home    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 2, 3, 5, 1, 0, 1, 9, 0, 3, 5, 3, 3, 1, 0, 2, 1, 2, 3, 2,…</span></span>
+<span><span class="co">#&gt; $ goals_visitor <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 3, 2, 0, 1, 2, 2, 0, 3, 1, 2, 0, 1, 1, 4, 1, 2, 1, 0, 2,…</span></span></code></pre></div>
+</div>
   </main>
 </div>
 
