@@ -13,6 +13,7 @@ Imports:
     cli,
     dplyr,
     engsoccerdata,
+    ggplot2,
     rlang,
     tibble,
     withr

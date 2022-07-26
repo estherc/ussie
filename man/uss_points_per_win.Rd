@@ -7,7 +7,8 @@
 uss_points_per_win(country, season, default = 3)
 }
 \arguments{
-\item{country}{\code{character} scalar, specifies the league.}
+\item{country}{\code{character} scalar, specifies the league.
+\code{uss_countries()} returns choices available from {engsoccerdata}}
 
 \item{season}{\code{integer}-ish year of the football season.}
 

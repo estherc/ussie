@@ -7,7 +7,8 @@
 uss_get_matches(country = uss_countries(), ...)
 }
 \arguments{
-\item{country}{\code{character} scalar, specifies the league.}
+\item{country}{\code{character} scalar, specifies the league.
+\code{uss_countries()} returns choices available from {engsoccerdata}}
 
 \item{...}{<\code{\link[dplyr:dplyr_data_masking]{data-masking}}> Expressions that return a
 logical value, and are defined in terms of the variables in \code{.data}.
@@ -15,8 +16,8 @@ If multiple expressions are included, they are combined with the \code{&} operat
 Only rows for which all conditions evaluate to \code{TRUE} are kept.}
 }
 \value{
-a tibble with columns \code{country}, \code{date}, \code{season}, \code{tier}, \code{home},
-\code{visitor}, \code{goals_home}, \code{goals_visitor}.
+\link[tibble:tibble-package]{tibble} with columns \code{country}, \code{date},
+\code{season}, \code{tier}, \code{home}, \code{visitor}, \code{goals_home}, \code{goals_visitor}.
 }
 \description{
 Gets league-play data for each game, from {engsoccerdata}, returning
@@ -24,12 +25,13 @@ a tibble in a standardised format.
 }
 \details{
 \code{uss_countries()} returns the available choices; \code{"england"} is
-the default.
+the default. You can add filtering expressions via the \code{...} argument;
+These are evaluated using \code{\link[dplyr:filter]{dplyr::filter()}}.
 
 This function relies on an internal function, \code{uss_make_matches()}, to parse
 the source data.
 }
 \examples{
 uss_get_matches("england")
-uss_get_matches("england", season == 1966)
+uss_get_matches("italy", season == 1990)
 }

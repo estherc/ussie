@@ -33,9 +33,11 @@ Given a teams-matches data frame (returned by \code{\link[=uss_make_teams_matche
 return return a data frame on wins, losses, points, etc.:
 \itemize{
 \item cumulative, over the course of each season: \code{uss_make_seasons_cumulative()}
+\item final result for each season: \code{uss_make_seasons_final()}
 }
 }
 \examples{
 italy <- uss_get_matches("italy") |> uss_make_teams_matches()
 uss_make_seasons_cumulative(italy)
+uss_make_seasons_final(italy)
 }
