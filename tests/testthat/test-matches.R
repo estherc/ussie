@@ -1,15 +1,21 @@
 test_that("uss_make_matches works", {
+  
+  local_warn_partial_match()
+  
+  # we have tested the behaviors of the validators elsewhere,
+  # here, we're just making sure the *right* error got thrown
+  expect_error(uss_make_matches(3, "foo"), class = "ussie_error_data")
+  expect_error(uss_make_matches(mtcars, "foo"), class = "ussie_error_cols")
+  
+  italy <- uss_make_matches(engsoccerdata::italy, "Italy")
+  
+  expect_true(tibble::is_tibble(italy))
+  expect_named(italy, cols_matches())
+  expect_identical(unique(italy$country), "Italy")
 
-  # use the function to get a table to run the tests against
-  spain <- uss_make_matches(engsoccerdata::spain, "Spain")
-  # Check that the table is a tibble
-  expect_true(tibble::is_tibble(spain))
-  # Check that the expected columns are in the expected order
-  expect_named(spain, c("country", "tier", "season", "date",
-                        "home", "visitor", "goals_home","goals_visitor"))
-  # Check that the country column we added does correspond to the country
-  # we expect this table to represent
-  expect_identical(unique(spain$country), "Spain")
-  expect_s3_class(spain$tier, "factor")
-  expect_snapshot(dplyr::glimpse(spain))
+  expect_s3_class(italy$tier, "factor")
+  
+  # not as robust as a full "identical" comparison
+  #  - still useful for column names, types, values for first few rows
+  expect_snapshot(dplyr::glimpse(italy))
 })

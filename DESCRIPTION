@@ -3,13 +3,12 @@ Title: Work with European Football League Data
 Version: 0.0.0.9000
 Authors@R: 
     person("Esther", "Chan", , "estherchan@notrealemail.com", role = c("aut", "cre"))
-Description: This is a demo package for the "Building Tidy Tools" workshop at 
-    at rstudio::conf(2022L). It allows you to work with European football 
-    league data supplied by the engsoccerdata package (Curley 2016).
+Description: This is a demo package for the "Building Tidy Tools" workshop
+    at at rstudio::conf(2022L). It allows you to work with European
+    football league data supplied by the engsoccerdata package (Curley
+    2016).
 License: MIT + file LICENSE
-Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+URL: https://estherc.github.io/ussie/
 Imports: 
     cli,
     dplyr,
@@ -18,9 +17,14 @@ Imports:
     tibble,
     withr
 Suggests: 
+    conflicted,
     knitr,
     rmarkdown,
+    roxygen2,
     testthat (>= 3.0.0)
+VignetteBuilder: 
+    knitr
 Config/testthat/edition: 3
-VignetteBuilder: knitr
-URL: https://estherc.github.io/ussie/
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1

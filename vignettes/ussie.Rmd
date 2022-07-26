@@ -43,3 +43,13 @@ We can add filtering conditions as well:
 
 spain_1987_matches <- uss_get_matches("spain", season == 1987)
 ```
+
+We can accumulate seasons:
+```{r cumulative seasons}
+
+england_1_1990 |>
+  uss_make_seasons_cumulative() |>
+  arrange(team, date)
+
+```
+
