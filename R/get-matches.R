@@ -80,7 +80,7 @@ get_soccer_data <- function(data_name) {
 #'
 #' @examples
 #' uss_get_matches("england")
-#' uss_get_matches("england", season = 1966)
+#' uss_get_matches("england", season == 1966)
 #' @export
 #'
 uss_get_matches <- function(country = uss_countries(), ...) {

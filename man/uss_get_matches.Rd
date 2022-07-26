@@ -31,5 +31,5 @@ the source data.
 }
 \examples{
 uss_get_matches("england")
-uss_get_matches("england", season = 1966)
+uss_get_matches("england", season == 1966)
 }

@@ -11,5 +11,5 @@ test_that("uss_make_matches works", {
   # we expect this table to represent
   expect_identical(unique(spain$country), "Spain")
   expect_s3_class(spain$tier, "factor")
-  expect_snapshot(dplyr::glimpse(italy))
+  expect_snapshot(dplyr::glimpse(spain))
 })
