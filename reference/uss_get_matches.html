@@ -57,7 +57,8 @@ a tibble in a standardised format.</p>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>country</dt>
-<dd><p><code>character</code> scalar, specifies the league.</p></dd>
+<dd><p><code>character</code> scalar, specifies the league.
+<code><a href="uss_countries.html">uss_countries()</a></code> returns choices available from engsoccerdata</p></dd>
 
 
 <dt>...</dt>
@@ -71,13 +72,14 @@ Only rows for which all conditions evaluate to <code>TRUE</code> are kept.</p></
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>a tibble with columns <code>country</code>, <code>date</code>, <code>season</code>, <code>tier</code>, <code>home</code>,
-<code>visitor</code>, <code>goals_home</code>, <code>goals_visitor</code>.</p>
+<p><a href="https://tibble.tidyverse.org/reference/tibble-package.html" class="external-link">tibble</a> with columns <code>country</code>, <code>date</code>,
+<code>season</code>, <code>tier</code>, <code>home</code>, <code>visitor</code>, <code>goals_home</code>, <code>goals_visitor</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p><code><a href="uss_countries.html">uss_countries()</a></code> returns the available choices; <code>"england"</code> is
-the default.</p>
+the default. You can add filtering expressions via the <code>...</code> argument;
+These are evaluated using <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter()</a></code>.</p>
 <p>This function relies on an internal function, <code><a href="uss_make_matches.html">uss_make_matches()</a></code>, to parse
 the source data.</p>
     </div>
@@ -101,21 +103,22 @@ the source data.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 191,994 more rows, and abbreviated variable names ¹​goals_home,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​goals_visitor</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows</span></span>
-<span class="r-in"><span><span class="fu">uss_get_matches</span><span class="op">(</span><span class="st">"england"</span>, <span class="va">season</span> <span class="op">==</span> <span class="fl">1966</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2,028 × 8</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    country tier  season date       home    visitor         goals_home goals_vi…¹</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> England 1       <span style="text-decoration: underline;">1</span>966 1966-08-27 Arsenal Aston Villa              1          0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> England 1       <span style="text-decoration: underline;">1</span>966 1966-09-17 Arsenal Blackpool                1          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> England 1       <span style="text-decoration: underline;">1</span>966 1966-12-03 Arsenal Burnley                  0          0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> England 1       <span style="text-decoration: underline;">1</span>966 1967-02-04 Arsenal Chelsea                  2          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> England 1       <span style="text-decoration: underline;">1</span>966 1967-04-25 Arsenal Everton                  3          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> England 1       <span style="text-decoration: underline;">1</span>966 1966-11-19 Arsenal Fulham                   1          0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> England 1       <span style="text-decoration: underline;">1</span>966 1966-11-05 Arsenal Leeds United             0          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> England 1       <span style="text-decoration: underline;">1</span>966 1966-10-01 Arsenal Leicester City           2          4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> England 1       <span style="text-decoration: underline;">1</span>966 1967-03-28 Arsenal Liverpool                1          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> England 1       <span style="text-decoration: underline;">1</span>966 1967-01-14 Arsenal Manchester City          1          0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 2,018 more rows, and abbreviated variable name ¹​goals_visitor</span></span>
+<span class="r-in"><span><span class="fu">uss_get_matches</span><span class="op">(</span><span class="st">"italy"</span>, <span class="va">season</span> <span class="op">==</span> <span class="fl">1990</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 306 × 8</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    country tier  season date       home            visitor       goals…¹ goals…²</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Italy   1       <span style="text-decoration: underline;">1</span>990 1990-09-09 Parma AC        Juventus            1       2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Italy   1       <span style="text-decoration: underline;">1</span>990 1990-09-09 Torino FC       Lazio Roma          0       0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Italy   1       <span style="text-decoration: underline;">1</span>990 1990-09-09 Sampdoria       AC Cesena           1       0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Italy   1       <span style="text-decoration: underline;">1</span>990 1990-09-09 AS Roma         ACF Fiorenti…       4       0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Italy   1       <span style="text-decoration: underline;">1</span>990 1990-09-09 US Lecce        SSC Napoli          0       0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Italy   1       <span style="text-decoration: underline;">1</span>990 1990-09-09 Cagliari Calcio Inter               0       3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Italy   1       <span style="text-decoration: underline;">1</span>990 1990-09-09 Bologna FC      Pisa SC             0       1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Italy   1       <span style="text-decoration: underline;">1</span>990 1990-09-09 Atalanta        AS Bari             2       0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Italy   1       <span style="text-decoration: underline;">1</span>990 1990-09-09 AC Milan        Genoa CFC           1       0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Italy   1       <span style="text-decoration: underline;">1</span>990 1990-09-16 Genoa CFC       AS Roma             3       0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 296 more rows, and abbreviated variable names ¹​goals_home,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​goals_visitor</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows</span></span>
 </code></pre></div>
     </div>

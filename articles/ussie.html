@@ -116,9 +116,73 @@
 <p>We can add filtering conditions as well:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
-<span><span class="va">spain_1987_matches</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/uss_get_matches.html">uss_get_matches</a></span><span class="op">(</span><span class="st">"spain"</span>, <span class="va">season</span> <span class="op">==</span> <span class="fl">1987</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">spain_1987_matches</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/uss_get_matches.html">uss_get_matches</a></span><span class="op">(</span><span class="st">"spain"</span>, <span class="va">season</span> <span class="op">==</span> <span class="fl">1987</span>, </span>
+<span>                                      <span class="va">home</span> <span class="op">==</span> <span class="st">"Real Madrid"</span> <span class="op">|</span> <span class="va">visitor</span> <span class="op">==</span> <span class="st">"Real Madrid"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/uss_make_teams_matches.html">uss_make_teams_matches</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>We can also accumulate seasons:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">spain_1987_matches</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/uss_make_seasons_cumulative.html">uss_make_seasons_cumulative</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">team</span>, <span class="va">date</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 76 × 12</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># Groups:   country, tier, season, team [20]</span></span></span>
+<span><span class="co">#&gt;    country tier  season team        date       matches  wins draws losses points</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Spain   1       <span style="text-decoration: underline;">1</span>987 Athletic B… 1987-10-31       1     0     1      0      1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Spain   1       <span style="text-decoration: underline;">1</span>987 Athletic B… 1988-03-12       2     0     1      1      1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Spain   1       <span style="text-decoration: underline;">1</span>987 Atletico M… 1987-11-07       1     1     0      0      2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Spain   1       <span style="text-decoration: underline;">1</span>987 Atletico M… 1988-03-20       2     1     0      1      2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Spain   1       <span style="text-decoration: underline;">1</span>987 CA Osasuna  1987-09-20       1     0     0      1      0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Spain   1       <span style="text-decoration: underline;">1</span>987 CA Osasuna  1988-02-13       2     1     0      1      2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Spain   1       <span style="text-decoration: underline;">1</span>987 Cadiz CF    1987-08-30       1     0     0      1      0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Spain   1       <span style="text-decoration: underline;">1</span>987 Cadiz CF    1988-01-31       2     0     0      2      0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Spain   1       <span style="text-decoration: underline;">1</span>987 CD Logrones 1987-12-06       1     0     0      1      0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Spain   1       <span style="text-decoration: underline;">1</span>987 CD Logrones 1988-04-10       2     0     0      2      0</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 66 more rows, and 2 more variables: goals_for &lt;int&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   goals_against &lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</span></span></span></code></pre></div>
 </div>
-  </main>
+<div class="section level2">
+<h2 id="plot-results-over-seasons">Plot results over seasons<a class="anchor" aria-label="anchor" href="#plot-results-over-seasons"></a>
+</h2>
+<p>Of the countries included in <code><a href="../reference/uss_countries.html">uss_countries()</a></code>, only <code>"england"</code> has data for more than one <code>tier</code>, where we can see the effects of relegation and promotion. You can use <code><a href="../reference/uss_plot_seasons_tiers.html">uss_plot_seasons_tiers()</a></code> to look at performance over seasons, using data returned from <code><a href="../reference/uss_make_seasons_cumulative.html">uss_make_seasons_final()</a></code>:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">leeds_norwich</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="../reference/uss_get_matches.html">uss_get_matches</a></span><span class="op">(</span><span class="st">"england"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/uss_make_teams_matches.html">uss_make_teams_matches</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">team</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Leeds United"</span>, <span class="st">"Norwich City"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/uss_make_seasons_cumulative.html">uss_make_seasons_final</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">team</span>, <span class="va">season</span><span class="op">)</span></span>
+<span><span class="va">leeds_norwich</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 178 × 12</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># Groups:   country, season, tier [155]</span></span></span>
+<span><span class="co">#&gt;    country tier  season team        date       matches  wins draws losses points</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> England 2       <span style="text-decoration: underline;">1</span>920 Leeds Unit… 1921-05-07      42    14    10     18     38</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> England 2       <span style="text-decoration: underline;">1</span>921 Leeds Unit… 1922-05-06      42    16    13     13     45</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> England 2       <span style="text-decoration: underline;">1</span>922 Leeds Unit… 1923-05-05      42    18    11     13     47</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> England 2       <span style="text-decoration: underline;">1</span>923 Leeds Unit… 1924-05-03      42    21    12      9     54</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> England 1       <span style="text-decoration: underline;">1</span>924 Leeds Unit… 1925-05-02      42    11    12     19     34</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> England 1       <span style="text-decoration: underline;">1</span>925 Leeds Unit… 1926-05-01      42    14     8     20     36</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> England 1       <span style="text-decoration: underline;">1</span>926 Leeds Unit… 1927-05-07      42    11     8     23     30</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> England 2       <span style="text-decoration: underline;">1</span>927 Leeds Unit… 1928-05-05      42    25     7     10     57</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> England 1       <span style="text-decoration: underline;">1</span>928 Leeds Unit… 1929-05-04      42    16     9     17     41</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> England 1       <span style="text-decoration: underline;">1</span>929 Leeds Unit… 1930-05-03      42    20     6     16     46</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 168 more rows, and 2 more variables: goals_for &lt;int&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   goals_against &lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</span></span></span></code></pre></div>
+<p>The default is to show the <code>wins</code> on the y-axis:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/uss_plot_seasons_tiers.html">uss_plot_seasons_tiers</a></span><span class="op">(</span><span class="va">leeds_norwich</span><span class="op">)</span></span></code></pre></div>
+<p><img src="ussie_files/figure-html/plot_wins-1.png" width="700"></p>
+<p>You can provide an argument, <code>aes_y</code>, where you can supply an expression just as you would for ggplot2:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/uss_plot_seasons_tiers.html">uss_plot_seasons_tiers</a></span><span class="op">(</span><span class="va">leeds_norwich</span>, aes_y <span class="op">=</span> <span class="va">wins</span> <span class="op">-</span> <span class="va">losses</span><span class="op">)</span></span></code></pre></div>
+<p><img src="ussie_files/figure-html/plot_wins_losses-1.png" width="700"></p>
+</div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
