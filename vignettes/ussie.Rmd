@@ -36,3 +36,10 @@ glimpse(spain)
 spain_matches <- uss_get_matches("spain") |> glimpse()
 
 ```
+
+We can add filtering conditions as well:
+
+```{r uss_get_matches_filter}
+
+spain_1987_matches <- uss_get_matches("spain", season == 1987)
+```
